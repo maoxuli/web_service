@@ -1,0 +1,17 @@
+<launch>
+
+  <arg name="output" default="screen" />
+  <arg name="respawn" default="false" />
+  <arg name="name" default="roswww" />
+  <arg name="webpath" default="www"/>
+  <arg name="cached" default="false"/>
+
+  <arg name="port" default="8085"/>
+  <arg name="start_port" default="$(arg port)" />
+  <arg name="end_port" default="$(arg port)" />
+
+  <node pkg="roswww" type="webserver.py" name="$(arg name)" output="$(arg output)" respawn="$(arg respawn)"
+        args="--name $(arg name) --webpath $(arg webpath) --cached $(arg cached)
+              --port $(arg port) --start_port $(arg start_port) --end_port $(arg end_port)" />
+
+</launch>
